@@ -1,8 +1,7 @@
-## Time Series Forecasting -- for Sales, Transactions, Visits
+## Time Series Forecasting -- for Sales, Transactions, and Visits
 
-You can use the [editor on GitHub](https://github.com/Gracecjy/BlueDay/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+This capstone project is about forecasting sales for companies to make informed business decisions. For instance, if managers could have the projection of sales for the next two-weeks in advance, they would be able to properly allocate labor hours and identify the working efficiency of employees.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
 ### Markdown
 
