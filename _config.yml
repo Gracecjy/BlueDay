@@ -1,2 +1,3 @@
 theme: jekyll-theme-midnight
-BASE_PATH : /RICENCODE
+baseurl: "/BlueDay"
+url: "http://Gracecjy.github.io"
