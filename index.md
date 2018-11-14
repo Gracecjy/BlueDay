@@ -3,9 +3,11 @@
 This capstone project is about forecasting sales for companies to make informed business decisions. For instance, if managers could have the projection of sales for the next two-weeks in advance, they would be able to properly allocate labor hours and identify the working efficiency of employees.
 
 
-### Markdown
+### Data Set
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The dataset is provided by BlueDay,Inc.(https://www.blueday.com)
+It contains information about net sales, number of visitors to the store, labor hours, the units that have been sold at an hourly rate, employee skills, and sales goals for two years and more than 300 stores.
+
 
 ```markdown
 Syntax highlighted code block
