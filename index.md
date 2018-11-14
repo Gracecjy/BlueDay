@@ -24,7 +24,8 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](/BlueDay/blob/master/1.png)
+[Link](url) and 
+![Image]({{site.url}}{{site.baseurl}}/blob/master/1.png)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
