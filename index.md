@@ -24,7 +24,7 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and 
+[Link](https://github.com/Gracecjy/BlueDay/blob/master/1.png) and 
 ![Image](https://github.com/Gracecjy/BlueDay/blob/master/1.png)
 ```
 
