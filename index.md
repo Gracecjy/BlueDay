@@ -37,10 +37,10 @@ In previous models, I predicted transactions and visits independently when using
 ```
 - Path 2: Visits —> Transactions —> Sales
 ```                 
-          - Step 1: Predict Trans
+          - Step 1: Predict Visits
             Input Variables: Unit, Visit_Goal
             Output Variable: Pred_Visits
-          - Step 2: Predict Visits
+          - Step 2: Predict Transactions
             Input Variables:  Pred_Visits, Trans_Goal, Hours_Goal, AVG_TPH, AVG_DPT
             Output Variable: Pred_Trans
           - Step 3: Predict Sales
@@ -48,8 +48,28 @@ In previous models, I predicted transactions and visits independently when using
             Output Variable: Pred_Net_Sales
 
 ```
+_For each step in both paths, I used Prophet + AdaBoost model mentioned above to get the corresponding output variable._
+
+The projection R^2 and RMSE of two paths are about the same. 
+
+#### Model Evaluation based on Color Projection
+In the analytics platform provided by BlueDay, they use color scheme to tell managers whether their sales goal for the next two weeks is above, within, or below the predicted sales. The color scheme they use is: 
+```
+          - Blue if > 10% above goal
+          - Green if between 0 and 10% above goal
+          - Yellow if between -10% and 0% below goal 
+          - Red if -10% or more below goal.
+```
+Projected days are colored based on Projected vs. Goal and Actual days are colored based on Actual vs. Goal. 
+
+Under this scheme, I also evaluated models for two paths based on whether it projected the correct color.
+The performances are summarized below:
+![](./color_scheme.png)
+_Benchmark case: only use Prophet to predict sales_
+
+The second path: Visits -> Transactions -> Sales works better in all colors than the other path.
+
 ```markdown
-Syntax highlighted code block
 
 <img src='https://github.com/Gracecjy/BlueDay/blob/master/1.png' width='300'><img src='https://github.com/Gracecjy/BlueDay/blob/master/1.png' width='300'>
 ![](https://github.com/Gracecjy/BlueDay/blob/master/1.png)
@@ -65,17 +85,5 @@ Syntax highlighted code block
 2. List
 
 **Bold** and _Italic_ and `Code` text
-
-[Link](https://github.com/Gracecjy/BlueDay/blob/master/1.png) and 
-![Image](https://github.com/Gracecjy/BlueDay/blob/master/1.png)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Gracecjy/BlueDay/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
