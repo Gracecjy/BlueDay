@@ -1,4 +1,4 @@
-# Time Series Forecasting -- for Sales, Transactions, Visits
+# Time Series Forecasting -- for Sales, Transactions, and Visits
 
 This capstone project is about forecasting sales for companies to make informed business decisions. For instance, if managers could have the projection of sales for the next two-weeks in advance, they would be able to properly allocate labor hours and identify the working efficiency of employees.
 
