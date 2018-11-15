@@ -5,10 +5,11 @@ This capstone project is about forecasting sales for companies to make informed 
 
 ### Data Set
 
-The dataset is provided by BlueDay,Inc.(https://www.blueday.com)
+The dataset is provided by [BlueDay,Inc.](https://www.blueday.com)
 It contains information about net sales, number of visitors to the store, labor hours, the units that have been sold at an hourly rate, employee skills, and sales goals for two years and more than 300 stores.
 
 <img src='/1.png' width='300'>
+<img src='/2.png' width='300'>
 
 ```markdown
 Syntax highlighted code block
