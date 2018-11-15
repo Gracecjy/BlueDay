@@ -24,6 +24,7 @@ For example, to make projection for sales, I first used training set to find the
 #### 3. Find Best Prediction Path
 In previous models, I predicted transactions and visits independently when using them for sales projection. Instead of predicting them parallelly, it would also be interesting to investigate whether there could be a sequential effect on the order of predicting transactions and visits. So the following are two paths that I have tried in sales projection:
 - Path 1: Transactions —> Visits —> Sales
+
 ```
           - Step 1: Predict Transations
             Input Variables: Trans_Goal, Hours_Goal, AVG_TPH, AVG_DPT
@@ -35,7 +36,9 @@ In previous models, I predicted transactions and visits independently when using
             Input Variables: Pred_Visits, Net_Sales_Goal
             Output Variable: Pred_Net_Sales
 ```
+
 - Path 2: Visits —> Transactions —> Sales
+
 ```                 
           - Step 1: Predict Visits
             Input Variables: Unit, Visit_Goal
@@ -54,12 +57,14 @@ The projection R^2 and RMSE of two paths are about the same.
 
 #### Model Evaluation based on Color Projection
 In the analytics platform provided by BlueDay, they use color scheme to tell managers whether their sales goal for the next two weeks is above, within, or below the predicted sales. The color scheme they use is: 
+
 ```
           - Blue if > 10% above goal
           - Green if between 0 and 10% above goal
           - Yellow if between -10% and 0% below goal 
           - Red if -10% or more below goal.
 ```
+
 Projected days are colored based on Projected vs. Goal and Actual days are colored based on Actual vs. Goal. 
 
 Under this scheme, I also evaluated models for two paths based on whether it projected the correct color.
@@ -69,21 +74,8 @@ _Benchmark case: only use Prophet to predict sales_
 
 The second path: Visits -> Transactions -> Sales works better in all colors than the other path.
 
-```markdown
+#### Sample Projections for Sales, Transactions, and Visits
+Based on the performance, I choose the Prophet + AdaBoost model and the Visits -> Transactions -> Sales to get the projections for sales, transactions, and visits.
+[Here is the app](http://time-series-sample-projections.herokuapp.com/) to see sample projections on different dates, which includes prediction periods with or without national holidays and the prediction period where maximum amount of sales happens.
 
-<img src='https://github.com/Gracecjy/BlueDay/blob/master/1.png' width='300'><img src='https://github.com/Gracecjy/BlueDay/blob/master/1.png' width='300'>
-![](https://github.com/Gracecjy/BlueDay/blob/master/1.png)
-
-# Header 1 
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-```
-
+This is the end of my capstone project. Thanks for reviewing!
