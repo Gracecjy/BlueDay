@@ -55,7 +55,7 @@ _For each step in both paths, I used Prophet + AdaBoost model mentioned above to
 
 The projection R^2 and RMSE of two paths are about the same. 
 
-#### Model Evaluation based on Color Projection
+### Model Evaluation based on Color Projection
 In the analytics platform provided by BlueDay, they use color scheme to tell managers whether their sales goal for the next two weeks is above, within, or below the predicted sales. The color scheme they use is: 
 
 ```
@@ -74,7 +74,7 @@ _Benchmark case: only use Prophet to predict sales_
 
 The second path: Visits -> Transactions -> Sales works better in all colors than the other path.
 
-#### Sample Projections for Sales, Transactions, and Visits
+### Sample Projections for Sales, Transactions, and Visits
 Based on the performance, I choose the Prophet + AdaBoost model and the Visits -> Transactions -> Sales to get the projections for sales, transactions, and visits.
 [Here is the app](http://time-series-sample-projections.herokuapp.com/) to see sample projections on different dates, which includes prediction periods with or without national holidays and the prediction period where maximum amount of sales happens.
 
