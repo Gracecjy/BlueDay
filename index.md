@@ -11,7 +11,7 @@ It contains information about net sales, number of visitors to the store, labor 
 ### Models 
 
 #### 1. ARIMA -> Prophet
-After exploring the dataset, I found that patterns of sales,transactions, and visits versus time are very different under various time periods. For example, peaks usually happen at weekends and holidays and minimums occur on weekdays. In order to catch these patterns, I first used a traditional time series model -- [ARIMA](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average). It takes seasonality into account and the prediction result of a sample two-week period (on the left below) shows that although the seasonal pattern has been caught, the magnitude of the prediction still needs improvement. After further exploring the data, I found that on holidays, the magnitude of sales and visits usually have a sharp increase, which is not reflected in this model. So to count for the holiday effect, I applied package [Prophet](https://facebook.github.io/prophet/) and adding federal holidays and store special events calendar into the model. The prediction (on the right below) performs much better and RMSE has been decreased to $4,540 compared with a mean sales amount of $26,000.
+After exploring the dataset, I found that patterns of sales,transactions, and visits versus time are very different under various time periods. For example, peaks usually happen at weekends and holidays and minimums occur on weekdays. In order to catch these patterns, I first used a traditional time series model -- [ARIMA](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average). It takes seasonality into account and the prediction result of a sample two-week period (on the left below) shows that although the seasonal pattern has been caught, the magnitude of the prediction still needs improvement. After further exploring the data, I found that on holidays, the magnitude of sales and visits usually have a sharp increase, which is not reflected in this model. So to count for the holiday effect, I applied package [Prophet](https://facebook.github.io/prophet/) and added federal holidays and store special events calendar into the model. The prediction (on the right below) performs much better and RMSE has been decreased to $4,540, which is about 16% of the mean sales amount.
 
 ![](./ts_ppt.png)
 
@@ -75,7 +75,7 @@ _Benchmark case: only use Prophet to predict sales_
 The second path: Visits -> Transactions -> Sales works better in all colors than the other path.
 
 ### Sample Projections for Sales, Transactions, and Visits
-Based on the performance, I choose the Prophet + AdaBoost model and the Visits -> Transactions -> Sales to get the projections for sales, transactions, and visits.
+Based on model performances, I choose the Prophet + AdaBoost model and the Visits -> Transactions -> Sales path to get projections for sales, transactions, and visits.
 [Here is the app](http://time-series-sample-projections.herokuapp.com/) to see sample projections on different dates, which includes prediction periods with or without national holidays and the prediction period where maximum amount of sales happens.
 
 This is the end of my capstone project. Thanks for reviewing!
