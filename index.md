@@ -9,9 +9,21 @@ The dataset is provided by [BlueDay,Inc.](https://www.blueday.com)
 It contains information about net sales, number of visitors to the store, labor hours, the units that have been sold at an hourly rate, employee skills, and sales goals for two years and more than 300 stores.
 
 ### Models 
-After exploring the dataset, I found that patterns of sales,transactions, and visits versus time are very different under various time periods. For example, peaks usually happen at weekends and holidays and minimums occur on weekdays. In order to catch these patterns, I first used a traditional time series model -- [ARIMA](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average).It takes seasonality into account and the prediction result of a sample two-week period (on the left below) shows that although the seasonal pattern has been caught, the magnitude of the prediction still needs improvement. After further exploring the data, I found that on holidays, the magnitude of sales and visits usually have a sharp increase, which is not reflected in this model. So to count for the holiday effect, I applied package [Prophet](https://facebook.github.io/prophet/) and adding federal holidays and store special events calendar into the model. The prediction (on the right below) performs much better and RMSE has been decreased to $4,540 compared with a mean sales amount of $26,000.
+
+#### 1. ARIMA -> Prophet
+After exploring the dataset, I found that patterns of sales,transactions, and visits versus time are very different under various time periods. For example, peaks usually happen at weekends and holidays and minimums occur on weekdays. In order to catch these patterns, I first used a traditional time series model -- [ARIMA](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average). It takes seasonality into account and the prediction result of a sample two-week period (on the left below) shows that although the seasonal pattern has been caught, the magnitude of the prediction still needs improvement. After further exploring the data, I found that on holidays, the magnitude of sales and visits usually have a sharp increase, which is not reflected in this model. So to count for the holiday effect, I applied package [Prophet](https://facebook.github.io/prophet/) and adding federal holidays and store special events calendar into the model. The prediction (on the right below) performs much better and RMSE has been decreased to $4,540 compared with a mean sales amount of $26,000.
 
 ![](./ts_ppt.png)
+
+#### 2. Prophet -> Prophet + AdaBoost
+Instead of purely using time series data for sales, visits, and transactions themselves, I moved on to expand the model by integrating additional information, such as transactions goal, hours goal, and employee skill levels. For example, to make projection for sales, I first used training set to find the relation between feature variables and sales using [AdaBoost](https://en.wikipedia.org/wiki/AdaBoost), an ensemble method in Machine Learning. Then, for features without 'Goal' in their variable names, I use Prophet to make two-week projections for them parallelly; for those feature variables which are labeled as 'Goal', I used acutal numbers instead of predicted ones because they are already known two weeks in advance. The last step was applying learned model to the projection period of all feature variables so that we can get the corresponding projected sales. The performance below shows that prophet integrated with machine learning model works even better in terms of RMSE and R^2. 
+![](./ppt_ml.png)
+
+instead of predicting the feature variables paralelly, use path
+
+- Path 1
+- Path 2
+
 
 ```markdown
 Syntax highlighted code block
