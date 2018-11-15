@@ -24,6 +24,7 @@ For example, to make projection for sales, I first used training set to find the
 #### 3. Find Best Prediction Path
 In previous models, I predicted transactions and visits independently when using them for sales projection. Instead of predicting them parallelly, it would also be interesting to investigate whether there could be a sequential effect on the order of predicting transactions and visits. So the following are two paths that I have tried in sales projection:
 - Path 1: Transactions —> Visits —> Sales
+
           - Step 1: Predict Transations
             Input Variables: Trans_Goal, Hours_Goal, AVG_TPH, AVG_DPT
             Output Variable: Pred_Trans
@@ -35,6 +36,7 @@ In previous models, I predicted transactions and visits independently when using
             Output Variable: Pred_Net_Sales
 
 - Path 2: Visits —> Transactions —> Sales
+                 
           - Step 1: Predict Trans
             Input Variables: Unit, Visit_Goal
             Output Variable: Pred_Visits
